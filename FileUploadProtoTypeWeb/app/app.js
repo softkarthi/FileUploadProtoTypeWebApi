@@ -1,7 +1,6 @@
-﻿console.log('app.js');
-var routerApp = angular.module('FileUploadProtoType', ['ui.router', 'FileUploadProtoType.FileUpload']).config(function ($stateProvider, $urlRouterProvider) {
+﻿var routerApp = angular.module('FileUploadProtoType', ['ui.router', 'FileUploadProtoType.FileUpload']).config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
         .state('home', {

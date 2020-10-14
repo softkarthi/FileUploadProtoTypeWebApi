@@ -1,5 +1,33 @@
-﻿<h1>File Upload</h1>
-<div ng-controller="fileUploadController">
-    <input id="fileInput" type="file" multiple="multiple" /><br/>
-    <button ng-click="uploadFile()">Up Load</button>
+﻿<div ng-init="init()" ng-controller="fileUploadController">
+<div class="container">
+    <div class="col-md-6">
+        <div class="row">
+            <h2>Upload File</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <td><input id="fileInput" type="file" multiple="multiple" /></td>
+                </tr>
+                <tr>
+                    <td><button ng-click="uploadFile()">Up Load</button></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Stored File Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="file in fileList">
+                        <td><a href="/file/"></a>{{file.name}}</td>
+                        <td><a href="/file/" target="_blank">{{file.storedName}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </div>

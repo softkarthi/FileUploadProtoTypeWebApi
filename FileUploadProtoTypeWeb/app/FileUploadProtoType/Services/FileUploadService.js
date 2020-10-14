@@ -1,11 +1,12 @@
 ﻿(function (module) {
     module.service('FileUploadService', [
-        '$http','$rootScope',
-        function ($http, $rootScope) {
+        '$http',
+        function ($http) {
+            var url = 'https://localhost:5001/api/FileUpload';
 
             function uploadFile(formFile) {
                 return $http({
-                    url: 'https://localhost:5001/api/FileUpload',
+                    url: url,
                     method: 'POST',
                     data: formFile,
                     headers: { 'Content-Type': undefined }, //this is important
@@ -16,7 +17,7 @@
             function getFiles()
             {
                 return $http({
-                    url: 'https://localhost:5001/api/FileUpload',
+                    url: url,
                     method: 'GET',
                     headers: { 'Content-Type': undefined },
                     transformRequest: angular.identity 

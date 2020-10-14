@@ -1,8 +1,8 @@
 ﻿'use strict';
 angular.module('FileUploadProtoType.FileUpload').controller('fileUploadController', [
-    '$scope', 'FileUploadService', '$rootScope',
-    function ($scope, FileUploadService, $rootScope) {
-        $rootScope.fileList = [];
+    '$scope', 'FileUploadService',
+    function ($scope, FileUploadService) {
+        $scope.fileList = [];
 
         $scope.uploadFile = function () {
             var fileInput = document.getElementById('fileInput');
@@ -23,15 +23,16 @@ angular.module('FileUploadProtoType.FileUpload').controller('fileUploadControlle
             });
         };
 
-        $scope.init = function () {
+        this.$onInit = function () {
             getFiles();
         }
 
-        function getFiles() {
-            $rootScope.fileList = [];
+        function getFiles()
+        {
+            $scope.fileList = [];
             FileUploadService.getFiles().then(function (response) {
                 if (response.status === 200) {
-                    $rootScope.fileList = response.data;
+                    $scope.fileList = response.data;
                 }
             }).catch(function (response) {
                 fileInput.value = '';
